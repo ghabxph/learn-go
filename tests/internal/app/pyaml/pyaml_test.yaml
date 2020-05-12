@@ -1,0 +1,12 @@
+test:
+  - title: "non-existent yaml file"
+    path: "non-existent.yaml"
+
+  - title: "simple yaml file"
+    path: "pyaml_simple.yaml"
+
+  - title: "with condition"
+    path: "pyaml_with_condition.yaml"
+
+  - title: "with condition and script outside condition"
+    path: "pyaml_with_condition_and_script_outside.yaml"

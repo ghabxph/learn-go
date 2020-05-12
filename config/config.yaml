@@ -1,0 +1,16 @@
+realIpHeader:
+  enabled: "{{- realIpHeaderEnabled}}"
+  value: "{{- realIpHeaderValue}}"
+
+routes:
+  - from: "/"
+    to: "/"
+    endpoint: "{{- blogEndpoint}}"
+    hostname: "{{- blogHostname}}"
+    port: "{{- blogPort}}"
+
+  - from: "/api/v1/blog/webhook"
+    to: "/api/v1/update"
+    endpoint: "{{- blogEndpoint}}"
+    hostname: "{{- blogHostname}}"
+    port: "{{- blogPort}}"

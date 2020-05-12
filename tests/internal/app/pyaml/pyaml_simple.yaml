@@ -1,0 +1,7 @@
+pyaml:
+  - step: "Some sample echo"
+    workdir: '../../../tests'
+    script:
+    - [echo, "nice one"]
+    - [echo, "nice two"]
+    - [git, status]

@@ -1,0 +1,42 @@
+test:
+- title: "When I say /"
+  route: ""
+  code: 200
+  page: "index.html"
+  contentType: "text/html; charset=utf-8"
+
+- title: "When I say /index.html"
+  route: "index.html"
+  code: 200
+  page: "index.html"
+  contentType: "text/html; charset=utf-8"
+
+- title: "When I say /elegant.md"
+  route: "elegant.md"
+  code: 200
+  page: "elegant.md"
+  contentType: "text/markdown; charset=utf-8"
+
+- title: "When I say /assets/css/global.css"
+  route: "assets/css/global.css"
+  code: 200
+  page: "assets/css/global.css"
+  contentType: "text/css; charset=utf-8"
+
+- title: "When I say /assets/js/global.js"
+  route: "assets/js/global.js"
+  code: 200
+  page: "assets/js/global.js"
+  contentType: "application/javascript"
+
+- title: "When I say /assets"
+  route: "assets"
+  code: 404
+  page: "assets/error/404.html"
+  contentType: "text/html; charset=utf-8"
+
+- title: "When I say /assets.md"
+  route: "assets.md"
+  code: 404
+  page: "assets/error/404.html"
+  contentType: "text/html; charset=utf-8"

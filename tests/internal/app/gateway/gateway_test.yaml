@@ -1,0 +1,47 @@
+test:
+- title: "Scenario 1. no templating"
+  config:
+    realIpHeader:
+      enabled: "true"
+      value: "X-Real-IP"
+    routes:
+      - from: "/"
+        to: "/"
+        endpoint: "http"
+        hostname: "blog-server"
+        port: "80"
+      - from: "/api/v1/blog/webhook"
+        to: "/api/v1/update"
+        endpoint: "http"
+        hostname: "blog-server"
+        port: "80"
+- title: "Scenario 2. with templating"
+  env:
+  - REAL_IP_HEADER_ENABLED=false
+  - REAL_IP_HEADER_VALUE=X-Real-IP
+  - ROUTES_BLOG_ENDPOINT=http
+  - ROUTES_BLOG_HOSTNAME=blog-server
+  - ROUTES_BLOG_PORT=80
+  config:
+    realIpHeader:
+      enabled: "{{- realIpHeaderEnabled}}"
+      value: "{{- realIpHeaderValue}}"
+    routes:
+      - from: "/"
+        to: "/"
+        endpoint: "{{- blogEndpoint}}"
+        hostname: "{{- blogHostname}}"
+        port: "{{- blogPort}}"
+      - from: "/api/v1/blog/webhook"
+        to: "/api/v1/update"
+        endpoint: "{{- blogEndpoint}}"
+        hostname: "{{- blogHostname}}"
+        port: "{{- blogPort}}"
+- title: "Scenario 3. Config defined from file, with env"
+  env:
+  - REAL_IP_HEADER_ENABLED=false
+  - REAL_IP_HEADER_VALUE=X-Real-IP
+  - ROUTES_BLOG_ENDPOINT=http
+  - ROUTES_BLOG_HOSTNAME=blog-server
+  - ROUTES_BLOG_PORT=80
+  configFile: "config.yaml" 
